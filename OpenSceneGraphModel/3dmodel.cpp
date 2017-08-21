@@ -353,10 +353,6 @@ int main(int argc, char** argv)
 	viewer.setSceneData(root);
 	// left click+movement for angle, right click + movement to go forward backward, middle click + movement to go sideways
 	viewer.setCameraManipulator(new osgGA::TrackballManipulator);
-
-//textGeode
-//textInLabGeode
-//textBlindGeode
 	
 	bool textdisappear1 = false;
 	osg::ref_ptr<osg::MatrixTransform> textTrans = new osg::MatrixTransform;
@@ -420,55 +416,3 @@ while ( !viewer.done() )
 	}
 	return 0;
 }
-
-
-
-
-//osg::MatrixTransform* matrixTransformScale(osg::Node *node, double x, double y, double z, double sx, double sy, double sz){
-//	osg::ref_ptr<osg::MatrixTransform> nodeTransform = new osg::MatrixTransform;
-//	osg::Matrix nodePos = osg::Matrix::translate(x, y, z);
-//	osg::Matrix nodeScale = osg::Matrix::scale(sx, sy, sz);
-//	nodeTransform->setMatrix(nodePos * nodeScale);
-//	nodeTransform->addChild(node);
-//	return nodeTransform;
-//}
-
-/**
-	//adding texturemap : Start
-	osg::ref_ptr<osg::ShapeDrawable> circle = new osg::ShapeDrawable;
-	circle->setShape(new osg::Sphere(osg::Vec3(0.0f,0.0f,10.0f), 1.0f));
-	//circle->setColor(osg::Vec4(0.0f, 1.0f, 0.0f, 1.0f));
-	
-	osg::ref_ptr<osg::Geode> sphere = new osg::Geode;
-	sphere->addDrawable(circle.get());
-	
-	Material *material = new Material();
-	material->setEmission(Material::FRONT, Vec4(0.8, 0.8, 0.8, 1.0));
-	
-	Image *image = osgDB::readImageFile("earth.jpg");	
-	
-	osg::Texture2D *texture = new Texture2D;
-	texture->setDataVariance(Object::DYNAMIC);
-	texture->setFilter(Texture::MIN_FILTER, Texture::LINEAR_MIPMAP_LINEAR);
-	texture->setFilter(Texture::MAG_FILTER, Texture::LINEAR);
-	texture->setWrap(Texture::WRAP_S, Texture::CLAMP);
-	texture->setWrap(Texture::WRAP_T, Texture::CLAMP);
-	texture->setImage(image);
-	
-	StateSet *sphereStateSet = sphere->getOrCreateStateSet();
-	sphereStateSet->ref();
-	sphereStateSet->setAttribute(material);
-	sphereStateSet->setTextureAttributeAndModes(0, texture, StateAttribute::ON);
-	
-	//adding texturemap : End
-**/
-
-
-	//viewer.setCamera()->setViewMatrixAsLookAt(osg::Vec3(0.0f,100.0f,0.0f), osg::Vec3(-100.0f,100.0f,0.0f), osg::Vec3(2.0f,2.0f,2.0f));
-	
-	//Camera : start
-	//viewer.setCameraManipulator (osgGA::CameraManipulator::setHomePosition(osg::Vec3(0.0f,0.0f,5.0f), osg::Vec3(-20.0f,-20.0f,0.0f),osg::Vec3()));
-	//viewer.setCameraManipulator(osgGA::CameraManipulator->setHomePosition());
-		//viewer.setCameraManipulator(new osgGA::TrackballManipulator);
-	//viewer.setCameraManipulator(new osgGA::DriveManipulator);
-	//Camera : end
